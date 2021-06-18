@@ -6,6 +6,7 @@ const figlet = require("figlet");
 const shell = require("shelljs");
 const axios = require('axios');
 const fetchData = require('./vaccine/vaccine');
+const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
  
 const init = () => {
     console.log(
@@ -42,7 +43,10 @@ const run = async () => {
     switch(menu) {
         case 'Vaccine':
             const data = await fetchData();
-            console.log(data);
+            const vaccine = await displayArrayOfObject(data);
+            const { rdv } = vaccine;
+            const newRdv = 'https://' + rdv.substring(rdv.indexOf('/')+2);
+            redirectToUrl(newRdv);
             break;
         case 'Tracks covid-19':
             success('tracks covid-19');

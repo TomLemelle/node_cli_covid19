@@ -8,15 +8,15 @@ const vaccine = () => {
 const fetchData = async () => {
     const { answer } = await vaccine();
     const response = await axios.get(`https://vitemadose.gitlab.io/vitemadose/${answer}.json`)
-    let url = [];
+    let data = [];
     response.data.centres_disponibles.forEach(element => {
-        url.push({
+        data.push({
             department: element.departement,
+            name: element.nom,
             url: element.url,
-            name: element.nom
-        })
+        });
     });
-    console.log(url);
+    return data;
 };
 
 module.exports = fetchData;
