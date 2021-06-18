@@ -1,0 +1,29 @@
+{
+  "name": "node_cli_covid19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomLemelle/node_cli_covid19.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomLemelle/node_cli_covid19/issues"
+  },
+  "homepage": "https://github.com/TomLemelle/node_cli_covid19#readme",
+  "bin": {
+    "covid": "./bin/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.1.1",
+    "shelljs": "^0.8.4"
+  }
+}
