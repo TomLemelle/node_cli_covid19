@@ -5,6 +5,7 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
 const axios = require('axios');
+const fetchData = require('./vaccine/vaccine');
  
 const init = () => {
     console.log(
@@ -17,17 +18,6 @@ const init = () => {
             "\n Bienvenue sur le menu du COVID 19 CLI",
         )
     );
-}
- 
-const basicQuestion = (question) => {
-    const basicQuestion = [
-        {
-            name: "answer",
-            type: "input",
-            message: question
-        },
-    ];
-    return inquirer.prompt(basicQuestion);
 }
  
 const menuQuestion = () => {
@@ -43,26 +33,6 @@ const menuQuestion = () => {
     return inquirer.prompt(menuQuestion);
 };
  
-const vaccine = () => {
-    return basicQuestion("What is your department ?");
-}
- 
-const success = (department) => {
-    if(department) {
-        console.log(
-            chalk.white.bgGreen.bold(`   Done! Your department is ${department}   `)
-        );
-    } else {
-        console.log(chalk.red.bgGreen.bold("   You haven't type your department   "));
-    }
-}
- 
-const fetchData = (department) => {
-    axios.get(`https://vitemadose.gitlab.io/vitemadose/${department}.json`)
-        .then(res => console.log(res.data))
-        .catch(() => console.warn('Wrong department'));
-};
- 
 const run = async () => {
     // show script introduction
     init();
@@ -71,10 +41,8 @@ const run = async () => {
     const { menu } = answers;
     switch(menu) {
         case 'Vaccine':
-            const department = await vaccine();
-            const fetch = fetchData(department.answer);
-            console.log(fetch);
-            success(department.answer);
+            const data = await fetchData();
+            console.log(data);
             break;
         case 'Tracks covid-19':
             success('tracks covid-19');
