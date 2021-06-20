@@ -5,6 +5,7 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
 const axios = require('axios');
+const { menuQuestion } = require('./question/question');
 const fetchData = require('./vaccine/vaccine');
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
 const open = require("open");
@@ -23,32 +24,18 @@ const init = () => {
     );
 }
  
-const menuQuestion = () => {
-    const menuQuestion = [
-        {
-            type: 'list',
-            name: "menu",
-            message: "Que voulez-vous faire ? :",
-            choices: ['Vaccine', 'Tracks covid-19', 'Make attestation'],
-            default: "VACCINE"
-        },
-    ];
-    return inquirer.prompt(menuQuestion);
-};
- 
 const run = async () => {
     // show script introduction
     init();
     // ask questions
-    const answers = await menuQuestion();
-    const { menu } = answers;
+    const answer = await menuQuestion();
+    const { menu } = answer;
     switch(menu) {
         case 'Vaccine':
             const data = await fetchData();
             const vaccine = await displayArrayOfObject(data);
             const { rdv } = vaccine;
             const newRdv = 'https://' + rdv.substring(rdv.indexOf('/')+2);
-            open(newRdv);
             redirectToUrl(newRdv);
             break;
         case 'Tracks covid-19':
