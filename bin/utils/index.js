@@ -19,13 +19,11 @@ module.exports = {
                 choices: data,
             },
         ];
-        return  inquirer.prompt(vaccineRendezVous);
+        return inquirer.prompt(vaccineRendezVous);
     },
 
     redirectToUrl(url) {
-        (async () => {
-            await open(url);
-        })
+        return open(url);
     }
 
 }

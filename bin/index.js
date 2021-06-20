@@ -7,6 +7,8 @@ const shell = require("shelljs");
 const axios = require('axios');
 const fetchData = require('./vaccine/vaccine');
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
+const open = require("open");
+
  
 const init = () => {
     console.log(
@@ -46,6 +48,7 @@ const run = async () => {
             const vaccine = await displayArrayOfObject(data);
             const { rdv } = vaccine;
             const newRdv = 'https://' + rdv.substring(rdv.indexOf('/')+2);
+            open(newRdv);
             redirectToUrl(newRdv);
             break;
         case 'Tracks covid-19':
