@@ -1,6 +1,7 @@
 const { basicQuestion } = require("../question/question");
 const axios = require('axios');
-const vaccineSuccess = require('../success/success');
+const { vaccineSuccess } = require('../success/success');
+
 const vaccine = () => {
     return basicQuestion("What is your department ?");
 }

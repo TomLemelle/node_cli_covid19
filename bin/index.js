@@ -4,13 +4,10 @@ const inquirer = require("inquirer");
 const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
-const axios = require('axios');
 const { menuQuestion } = require('./question/question');
 const fetchData = require('./vaccine/vaccine');
 const tracking = require('./tracks/tracking');
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
-const open = require("open");
-
  
 const init = () => {
     console.log(
@@ -41,12 +38,11 @@ const run = async () => {
             break;
         case 'Tracks covid-19':
             await tracking();
-            success('tracks covid-19');
             break;
         case 'Make attestation':
-            success('make attestation');
+            //success('make attestation');
             break;
-        default: success('please, choose one in the above list');
+        default: //success('please, choose one in the above list');
     }  
  
     // do your thing
