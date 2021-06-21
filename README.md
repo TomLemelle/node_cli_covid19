@@ -32,4 +32,4 @@ And install the package
 ## Author
 
   - **Tom Lemelle** -
-    [PurpleBooth](https://github.com/TomLemelle)
+    [TomLemelle](https://github.com/TomLemelle)
