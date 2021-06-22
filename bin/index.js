@@ -7,6 +7,7 @@ const shell = require("shelljs");
 const axios = require('axios');
 const { menuQuestion } = require('./question/question');
 const fetchData = require('./vaccine/vaccine');
+const { attestation } = require("./attestation/attestation");
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
 const open = require("open");
 
@@ -42,7 +43,7 @@ const run = async () => {
             success('tracks covid-19');
             break;
         case 'Make attestation':
-            success('make attestation');
+            attestation
             break;
         default: success('please, choose one in the above list');
     }  
