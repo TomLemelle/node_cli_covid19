@@ -17,7 +17,7 @@ const init = () => {
                 horizontalLayout: "default",
                 verticalLayout: "default"
             }),
-            "\n Bienvenue sur le menu du COVID 19 CLI",
+            "\n Welcome to Covid-19 cli menu",
         )
     );
 }

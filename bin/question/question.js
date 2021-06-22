@@ -7,7 +7,7 @@ module.exports = {
             {
                 type: 'list',
                 name: "menu",
-                message: "Que voulez-vous faire ? :",
+                message: "What do you want to do ? :",
                 choices: ['Vaccine', 'Tracks covid-19', 'Make attestation'],
                 default: "VACCINE"
             },
