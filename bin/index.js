@@ -6,7 +6,11 @@ const figlet = require("figlet");
 const shell = require("shelljs");
 const { menuQuestion } = require('./question/question');
 const fetchData = require('./vaccine/vaccine');
+<<<<<<< HEAD
 const tracking = require('./tracks/tracking');
+=======
+const { attestation } = require("./attestation/attestation");
+>>>>>>> feature--attestation
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
  
 const init = () => {
