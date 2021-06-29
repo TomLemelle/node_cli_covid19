@@ -6,11 +6,8 @@ const figlet = require("figlet");
 const shell = require("shelljs");
 const { menuQuestion } = require('./question/question');
 const fetchData = require('./vaccine/vaccine');
-<<<<<<< HEAD
 const tracking = require('./tracks/tracking');
-=======
 const { attestation } = require("./attestation/attestation");
->>>>>>> feature--attestation
 const { displayArrayOfObject, redirectToUrl } = require('./utils/index');
  
 const init = () => {
@@ -44,7 +41,7 @@ const run = async () => {
             await tracking();
             break;
         case 'Make attestation':
-            //success('make attestation');
+            await attestation('https://media.interieur.gouv.fr/attestation-deplacement-derogatoire-covid-19/');
             break;
         default: //success('please, choose one in the above list');
     }  
